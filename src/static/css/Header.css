@@ -1,0 +1,13 @@
+.headertitle{
+    margin-bottom:0;
+    font-family: Snell Roundhand, cursive;
+    font-size: 30pt;
+    text-align: center; 
+}
+
+.headersubtitle{
+    margin-block: 0;
+    font-family: Snell Roundhand, cursive;
+    font-size:15pt;
+    text-align: center;
+}
