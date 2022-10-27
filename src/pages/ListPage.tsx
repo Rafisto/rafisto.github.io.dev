@@ -7,6 +7,7 @@ import '../static/css/PoemListing.css'
 type Props = {}
 
 type Poem = {
+  url: string,
   id: string,
   title: string
 }
@@ -28,7 +29,6 @@ const ListPage = (props: Props) => {
     const res = await fetch('https://raw.githubusercontent.com/Rafisto/postsdata/main/poems/__list__.json')
     const json = await res.json()
     return json
-  
   } 
   
   const searchPoem = () =>{
@@ -52,7 +52,7 @@ const ListPage = (props: Props) => {
     {
     display.sort().map((poem)=>
     <div key={poem["id"]} className="__poemrecord" id={poem["title"]}>
-      <PoemListing id={poem["id"]} poemname={poem["title"]}/>
+      <PoemListing id={poem["url"]} poemname={poem["title"]}/>
     </div>
     )
     }

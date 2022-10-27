@@ -36,7 +36,7 @@ const Poem = () => {
       setText(poem['content'])
     }
     getContent()
-  })
+  }, [])
   const fetchPoems = async () =>{
     const res = await fetch('https://raw.githubusercontent.com/Rafisto/postsdata/main/poems/json/'+url+'.json')
     if(res.status === 404){
