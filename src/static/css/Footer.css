@@ -1,7 +1,8 @@
-.hrfooter{
-    margin-top: 20px;
+.hrfooter {
+    margin-top: 0;
     width: 25%;
 }
-.hrdownfooter{
-    width:20%;
+
+.hrdownfooter {
+    width: 20%;
 }

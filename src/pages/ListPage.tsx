@@ -16,12 +16,14 @@ type Poem = {
 const ListPage = (props: Props) => {
   const [poems, setPoems] = useState([])
   const [display, setDisplay] = useState([])
+  // const [loaded, setLoaded] = useState(false)
 
   useEffect(()=>{
     const getPoems = async () => {
       const serverData = await fetchPoems()
       setPoems(serverData)
       setDisplay(serverData)
+      // setLoaded(true)
     }
     getPoems()
   },[])
@@ -36,7 +38,7 @@ const ListPage = (props: Props) => {
     const query = (document.getElementById("__poemsearch") as HTMLInputElement)!.value;
     const temp: [] = []
     for (let index = 0; index < poems.length; index++) {
-      if ((poems[index] as Poem).title.toLowerCase().includes(query.toLowerCase()))
+      if ((poems[index] as Poem).title.toLowerCase().includes(query.toLowerCase()) || query.toLowerCase().includes((poems[index] as Poem).id))
       {
         temp.push(poems[index])
       }
@@ -50,12 +52,14 @@ const ListPage = (props: Props) => {
     <div className="listpagemain">
     <Header title="Lista Wierszy"/>
     <hr className="hrfourth"/>
-    <input id="__poemsearch" className="poemsearch" onChange={searchPoem} type="text" placeholder="Wyszukaj po nazwie"></input>
     <div>
+    <input id="__poemsearch" className="poemsearch" onChange={searchPoem} type="text" placeholder="Wyszukaj po nazwie"></input>
+    </div>
+    <div className="recordcontainerparent">
     {
     display.sort().map((poem)=>
     <div key={poem["id"]} className="__poemrecord" id={poem["title"]}>
-      <PoemListing id={poem["url"]} poemname={poem["title"]}/>
+      <PoemListing record={poem}/>
     </div>
     )
     }

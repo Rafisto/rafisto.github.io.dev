@@ -1,20 +1,28 @@
-.navbar{
-    display:flex;
+.navbar {
+    display: flex;
     width: 100%;
-    padding-block:10px;
-    font-size:15pt;
+    padding-block: 10px;
+    font-size: 15pt;
     background-color: rgba(0, 0, 0, 0.45)
 }
 
-.navbarname{
+.navbarname {
     text-align: left;
-    margin:0;
-    padding:inherit;
-    padding-left:15px;
-    color:rgb(210,210,210);
+    margin: 0;
+    padding-block: 9px;
+    padding-inline: 10px;
+    border-right: 1px solid rgba(191, 232, 255, 0.45);
+    color: rgb(210, 210, 210);
 }
 
-.navbarsplit{
-    padding:inherit;
-    color: rgb(255,255,255);
+.navbarsplit {
+    padding: inherit;
+    color: rgb(255, 255, 255);
+}
+
+.navbarlink {
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }

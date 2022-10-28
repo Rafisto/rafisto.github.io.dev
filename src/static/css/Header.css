@@ -1,13 +1,13 @@
-.headertitle{
-    margin-bottom:0;
-    font-family: Snell Roundhand, cursive;
+.headertitle {
+    margin-bottom: 0;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 30pt;
-    text-align: center; 
+    text-align: center;
 }
 
-.headersubtitle{
+.headersubtitle {
     margin-block: 0;
-    font-family: Snell Roundhand, cursive;
-    font-size:15pt;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15pt;
     text-align: center;
 }

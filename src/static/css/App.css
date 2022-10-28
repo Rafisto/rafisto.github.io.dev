@@ -1,7 +1,7 @@
 html,
 body {
-    background: rgb(76,0,110);
-    background: linear-gradient(122deg, rgba(76,0,110,1) 50%, rgba(8,0,59,1) 100%); 
+    background: rgb(76, 0, 110);
+    background: linear-gradient(122deg, rgb(42, 42, 56) 50%, rgb(45, 44, 83) 100%);
     color: white;
     overflow-x: hidden;
     height: 100%;
@@ -12,21 +12,33 @@ body {
 html,
 body,
 button {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+hr {
+    color: white;
 }
 
 a {
+    color: whitesmoke;
     position: relative;
     text-align: center;
     background-color: transparent;
+    font-style: italic;
     text-decoration: none;
     text-shadow: 1px 1px rgba(32, 32, 32, 0.5);
 }
-a:hover{
-    color: red;
+
+a:hover {
+    color: aqua;
     text-shadow: 1px 1px rgba(32, 32, 32, 0.5);
 }
 
-p{
-    text-align:center;
+p {
+    text-align: center;
+}
+
+.titlemsg {
+    width: 50%;
+    transform: translateX(50%);
 }
