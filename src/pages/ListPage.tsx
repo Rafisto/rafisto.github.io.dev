@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import PoemListing from '../components/PoemListing';
+import Navbar from '../components/Navbar';
 import '../static/css/PoemListing.css'
 
 type Props = {}
@@ -44,6 +45,8 @@ const ListPage = (props: Props) => {
   } 
 
   return (
+    <div>
+    <Navbar/>
     <div className="listpagemain">
     <Header title="Lista Wierszy"/>
     <hr className="hrfourth"/>
@@ -58,6 +61,7 @@ const ListPage = (props: Props) => {
     }
     </div>
     <Footer href="/" message="Powrót do strony głównej"/>
+    </div>
     </div>
   )
 }
