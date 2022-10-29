@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import PoemListing from '../components/PoemListing';
-import Navbar from '../components/Navbar';
-import '../static/css/PoemListing.css'
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import PoemListing from '../../components/PoemListing';
+import Navbar from '../../components/Navbar';
+import '../../static/css/PoemListing.css';
+import { Box, TextField } from '@mui/material';
 
 type Props = {}
 
 type Poem = {
   url: string,
   id: string,
-  title: string
+  title: string 
 }
 
 const ListPage = (props: Props) => {
@@ -34,8 +35,9 @@ const ListPage = (props: Props) => {
     return json
   } 
   
-  const searchPoem = () =>{
-    const query = (document.getElementById("__poemsearch") as HTMLInputElement)!.value;
+  const searchPoem = (e: any) =>{
+    // const query = (document.getElementById("__poemsearch") as HTMLInputElement)!.value;
+    const query = e.target.value;
     const temp: [] = []
     for (let index = 0; index < poems.length; index++) {
       if ((poems[index] as Poem).title.toLowerCase().includes(query.toLowerCase()) || query.toLowerCase().includes((poems[index] as Poem).id))
@@ -49,11 +51,18 @@ const ListPage = (props: Props) => {
   return (
     <div>
     <Navbar/>
+    <Box sx={[{marginBlock: '75px'}]}>
     <div className="listpagemain">
     <Header title="Lista Wierszy"/>
     <hr className="hrfourth"/>
     <div>
-    <input id="__poemsearch" className="poemsearch" onChange={searchPoem} type="text" placeholder="Wyszukaj po nazwie"></input>
+    <TextField
+      id="__poemsearch"
+      label="Wyszukaj wiersz"
+      type="search"
+      variant="filled"
+      onChange={(e)=>{searchPoem(e)}}
+    />
     </div>
     <div className="recordcontainerparent">
     {
@@ -66,6 +75,7 @@ const ListPage = (props: Props) => {
     </div>
     <Footer href="/" message="Powrót do strony głównej"/>
     </div>
+    </Box>
     </div>
   )
 }

@@ -1,5 +1,5 @@
+import { Typography } from '@mui/material';
 import React from 'react';
-import '../static/css/Header.css';
 
 type Props = {
     title: string;
@@ -8,8 +8,8 @@ type Props = {
 const Header = (props: Props) => {
     return (
     <div>
-        <p className="headertitle">{props.title ? props.title : "Wiersze"}</p>
-        <p className="headersubtitle">Rafał Włodarczyk</p>
+        <Typography variant="h4" sx={{marginBlock:'10px'}}>{props.title ? props.title : "Wiersze"}</Typography>
+        <Typography variant="h5">Rafał Włodarczyk</Typography>
     </div>
     )
 }
