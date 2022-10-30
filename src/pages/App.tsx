@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 
 function App() {
@@ -21,8 +20,8 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Box sx={[mui_flexbox, {marginBlock: '75px'}]}>
-        <Header title="Strona Główna"/>
+      <Box sx={[mui_flexbox, {marginBlock: '75px',marginBlockStart:'15%'}]}>
+        <Typography variant="h4">Strona Główna</Typography>
         <Typography variant="body1">
         Dzień dobry, Specjalnie dla tych, 
         którzy wyrażą chęć czytania mojej twórczości,

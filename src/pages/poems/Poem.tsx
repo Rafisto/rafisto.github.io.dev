@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Footer from '../../components/Footer'
-import Header from '../../components/Header'
 import Navbar from '../../components/Navbar'
 import '../../static/css/Poem.css'
 
@@ -51,7 +50,6 @@ const Poem = () => {
   return(
     <div>
     <Navbar/>
-    <Header title="Wiersz"/>
     <div className="poemparent">
       <div className="poemcontent">
         <p className="poemtitle">{title}</p>
