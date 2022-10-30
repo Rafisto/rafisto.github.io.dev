@@ -3,7 +3,8 @@ import Footer from '../../components/Footer';
 import PoemListing from '../../components/PoemListing';
 import Navbar from '../../components/Navbar';
 import '../../static/css/PoemListing.css';
-import { Box, TextField, Typography } from '@mui/material';
+import { Box, Button, FormControlLabel, FormGroup, Paper, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 type Props = {}
 
@@ -16,6 +17,7 @@ type Poem = {
 const ListPage = (props: Props) => {
   const [poems, setPoems] = useState([])
   const [display, setDisplay] = useState([])
+  const [listView, setListView] = useState(false)
 
   useEffect(()=>{
     const getPoems = async () => {
@@ -44,12 +46,19 @@ const ListPage = (props: Props) => {
     setDisplay(temp)
   } 
 
+  const switchListView = () => {
+    setListView(!listView);
+  }
+
   return (
     <div>
     <Navbar/>
-    <Box sx={[{marginBlockStart: '100px'}]}>
+    <Box sx={[{marginBlockStart: '100px',alignItems:"center"}]}>
     <div className="listpagemain" style={{}}>
     <Typography variant="h4" style={{marginBlockEnd:"15px"}}>Lista Wierszy</Typography>
+    <FormGroup sx={{alignItems:"center"}}>
+    <FormControlLabel onClick={switchListView} control={<Switch/>} label="Widok Listy" />
+    </FormGroup>
     <div className="recordcontainerparent">
       <TextField
         id="__poemsearch"
@@ -63,21 +72,59 @@ const ListPage = (props: Props) => {
           }
         }}
         style={{display:"inline-block"}}
-        onChange={(e)=>{searchPoem(e)}}
-      />
-      {
-      display.sort().map((poem)=>
-      <div key={poem["id"]} className="__poemrecord" id={poem["title"]}>
-        <PoemListing record={poem}/>
-      </div>
-      )
-      }
+        onChange={(e)=>{searchPoem(e)}}></TextField>
+        {(() => {
+        if (listView === false) {
+          return (
+            display.sort().map((poem)=>
+            <div key={poem["id"]} className="__poemrecord" id={poem["title"]}>
+              <PoemListing record={poem}/>
+            </div>
+            )
+          )
+        }
+        else {
+          return (
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                  <TableCell>Lp.</TableCell>
+                  <TableCell>Tytuł</TableCell>
+                  <TableCell>Data</TableCell>
+                  <TableCell>Opis</TableCell>
+                  <TableCell>Czytaj Online</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                {display.sort().map((poem) => (
+                <TableRow
+                  key={poem["id"]}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">{poem["id"]}</TableCell>
+                  <TableCell>{poem["title"]}</TableCell>
+                  <TableCell>{poem["date"]}</TableCell>
+                  <TableCell>{poem["description"]}</TableCell>
+                  <TableCell>
+                    <Link to={poem["url"] ? "/poems/"+ poem["url"] : "none"}>
+                      <Button style={{margin:"5px"}} variant="outlined">{poem["title"]}</Button>
+                    </Link>
+                  </TableCell>
+                </TableRow>
+                ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )
+        }
+      })()}
     </div>
     <Footer href="/" message="Powrót do strony głównej"/>
     </div>
     </Box>
     </div>
-  )
+  ) 
 }
 
 export default ListPage

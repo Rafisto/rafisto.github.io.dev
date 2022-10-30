@@ -27,24 +27,28 @@ const Navbar = (props: Props) => {
         {navItems.map(([item, link]) => {
           if (link.includes('http')){
             return(
-            <ListItem key={item} disablePadding>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-            <ListItemButton sx={{ textAlign: 'center', textDecoration:'none',color:'white' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-            </a>
-            </ListItem>
+            <div key={item}>
+              <ListItem key={item} disablePadding>
+              <a key={item} href={link} target="_blank" rel="noopener noreferrer">
+              <ListItemButton sx={{ textAlign: 'center', textDecoration:'none',color:'white' }}>
+                <ListItemText primary={item} />
+              </ListItemButton>
+              </a>
+              </ListItem>
+            </div>
             )
           }
           else {
             return(
-            <ListItem key={item} disablePadding>
-            <Link to={link}>
-            <ListItemButton sx={{ textAlign: 'center', textDecoration:'none',color:'white' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-            </Link>
-            </ListItem>
+            <div key={item}>
+              <ListItem disablePadding>
+              <Link to={link}>
+              <ListItemButton sx={{ textAlign: 'center', textDecoration:'none',color:'white' }}>
+                <ListItemText primary={item} />
+              </ListItemButton>
+              </Link>
+              </ListItem>
+            </div>
             )
           }
         })}

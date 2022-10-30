@@ -1,3 +1,4 @@
+import { Box, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Footer from '../../components/Footer'
@@ -50,10 +51,11 @@ const Poem = () => {
   return(
     <div>
     <Navbar/>
+    <Box sx={[{overflowX:"hidden",marginBlockStart: '100px',alignItems:"center"}]}>
     <div className="poemparent">
-      <div className="poemcontent">
-        <p className="poemtitle">{title}</p>
-        <p className="poemdate">{date}</p>
+      <div style={{paddingInline:"10px"}} className="poemcontent">
+        <Typography className="poemtitle" style={{fontSize:'100%'}}>{title}</Typography>
+        <Typography className="poemdate" style={{fontSize:'100%'}}>{date}</Typography>
         {text.map((line:string,index:number)=>{
           var text= "";
           if ((index+1) % 5 === 0) {
@@ -64,13 +66,14 @@ const Poem = () => {
           }
           return(
               <div key={index} >
-              <p key={index} className="poemline"><span className="poemindex">{text}</span>{line}</p>  
-              </div>         
+              <Typography style={{fontSize:'80%'}} key={index} className="poemline"><span className="poemindex">{text}</span>{line}</Typography>  
+              </div>
           )
         })}
       </div>
     </div>
     <Footer href="/list" message="Powrót do listy"/>
+    </Box>
     </div>
   )
 }
