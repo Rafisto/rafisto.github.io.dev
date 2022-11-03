@@ -9,7 +9,7 @@ type Props = {}
 
 const Navbar = (props: Props) => {
   const drawerWidth = 200;
-  const navItems = [['Strona główna','/'],['Wiersze','/list'],['Github','https://www.github.com/Rafisto']];
+  const navItems = [['Strona główna','/'],['Wiersze','/list'],['Linki','/links'],['Github','https://www.github.com/Rafisto']];
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
