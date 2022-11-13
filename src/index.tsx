@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import App from './pages/App';
-import Poem from './pages/poems/Poem';
-import ListPage from './pages/poems/ListPage';
+import Poem from './poems/Poem';
+import ListPage from './poems/ListPage';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import ArticleList from './articles/ArticleList';
 
 const darkTheme = createTheme({
   palette: {
@@ -33,6 +34,7 @@ root.render(
         <Route path = '/' element={<App/>}/>
         <Route path = '/list' element={<ListPage/>}/>
         <Route path = '/poems/:url' element={<Poem/>}/>
+        <Route path = '/articles/' element={<ArticleList/>}/>
       </Routes>
     </div>
   </HashRouter>

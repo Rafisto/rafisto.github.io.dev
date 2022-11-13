@@ -19,20 +19,6 @@ hr {
     color: white;
 }
 
-a {
-    color: whitesmoke;
-    position: relative;
-    text-align: center;
-    background-color: transparent;
-    text-decoration: none;
-    text-shadow: 1px 1px rgba(32, 32, 32, 0.5);
-}
-
-a:hover {
-    color: aqua;
-    text-shadow: 1px 1px rgba(32, 32, 32, 0.5);
-}
-
 p {
     text-align: center;
 }

@@ -9,7 +9,7 @@ type Props = {}
 
 const Navbar = (props: Props) => {
   const drawerWidth = 200;
-  const navItems = [['Strona główna','/'],['Wiersze','/list'],['Github','https://www.github.com/Rafisto']];
+  const navItems = [['Strona główna','/'],['Artykuły','/articles'],['Wiersze','/list'],['Github','https://www.github.com/Rafisto']];
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -81,7 +81,7 @@ const Navbar = (props: Props) => {
             {navItems.map(([item, link]) => {
               if (link.includes('http')){
                 return(
-                <a href={link} target="_blank" rel="noopener noreferrer">
+                <a key={item} href={link} target="_blank" rel="noopener noreferrer">
                 <Button key={item} sx={{ color: '#fff' }}>
                     {item}
                 </Button>

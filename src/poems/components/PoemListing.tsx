@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import '../static/css/PoemListing.css';
+import '../../static/css/PoemListing.css';
 
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import { Box, Button, Typography } from '@mui/material';

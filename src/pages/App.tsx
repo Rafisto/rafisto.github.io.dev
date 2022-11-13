@@ -32,7 +32,7 @@ function App() {
         <Link to="/list">
           <Button sx={mui_button} variant="outlined">Lista wierszy</Button>
         </Link>
-      </Box>
+      </Box>    
     </div>
   );
 }
