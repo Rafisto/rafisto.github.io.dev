@@ -16,7 +16,7 @@ const Footer = (props: Props) => {
           <Button style={{margin:"5px"}} variant="outlined">{props.message}</Button>
         </Link>
         <hr className="hrdownfooter"/>
-        <p>Projekt <i>"Wiersze 2022"</i></p>
+        <p><i>Projekty RW 2022</i></p>
     </div>
   )
 }

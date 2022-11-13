@@ -8,6 +8,8 @@ import ListPage from './poems/ListPage';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+
+import Redirects from './pages/general/redirects';
 import ArticleList from './articles/ArticleList';
 
 const darkTheme = createTheme({
@@ -34,6 +36,7 @@ root.render(
         <Route path = '/' element={<App/>}/>
         <Route path = '/list' element={<ListPage/>}/>
         <Route path = '/poems/:url' element={<Poem/>}/>
+        <Route path = '/links' element={<Redirects/>}/>
         <Route path = '/articles/' element={<ArticleList/>}/>
       </Routes>
     </div>
